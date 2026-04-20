@@ -428,6 +428,7 @@ MonoBehaviour:
     lifetime: 12
   fullHP: 10
   healPerTick: 1
+  hpText: {fileID: 7107847884074528668}
 --- !u!1 &7721211727719799842
 GameObject:
   m_ObjectHideFlags: 0

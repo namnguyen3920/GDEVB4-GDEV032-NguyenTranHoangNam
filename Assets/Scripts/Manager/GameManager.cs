@@ -51,15 +51,18 @@ public class GameManager : Singleton_Mono_Method<GameManager>
     {
         if (woundedSolider == null)
         {
+            Debug.LogWarning("[GameManager] TryRescue failed: woundedSolider is null.");
             return;
         }
 
         if (Time.time < nextRescueTime)
         {
+            Debug.Log("[GameManager] TryRescue throttled by rescueTickInterval.");
             return;
         }
 
         nextRescueTime = Time.time + rescueTickInterval;
+        Debug.Log("[GameManager] TryRescue accepted. Calling Heal().");
         woundedSolider.Heal();
     }
 

@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &344642033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -948,6 +948,7 @@ GameObject:
   - component: {fileID: 798918941}
   - component: {fileID: 798918942}
   - component: {fileID: 798918943}
+  - component: {fileID: 798918944}
   m_Layer: 0
   m_Name: Model
   m_TagString: Player
@@ -1061,6 +1062,33 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!50 &798918944
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798918940}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &831160993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1415,7 @@ MonoBehaviour:
   redZoneLifetime: 3
   minRedZoneSpawnInterval: 1.2
   maxRedZoneSpawnInterval: 2.8
-  redZoneSpawnMinBounds: {x: -7, y: 7}
+  redZoneSpawnMinBounds: {x: 0.2, y: 0.2}
   redZoneSpawnMaxBounds: {x: -4, y: 4}
   playerHealth: {fileID: 1598864796}
   loseUI: {fileID: 1327168825}

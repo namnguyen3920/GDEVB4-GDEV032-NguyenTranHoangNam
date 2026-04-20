@@ -51,10 +51,12 @@ public class WoundedSolider : MonoBehaviour
     {
         if (currentHP >= fullHP)
         {
+            Debug.Log("[WoundedSolider] Heal skipped: HP already full.");
             return;
         }
 
         currentHP = Mathf.Min(currentHP + healPerTick, fullHP);
+        Debug.Log("[WoundedSolider] Healed. Current HP: " + currentHP + " / " + fullHP);
         UpdateHPUI();
         GameManager.d_Instance?.UpdateRescueUI(this);
 
@@ -65,23 +67,33 @@ public class WoundedSolider : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    public void HandlePlayerTrigger(Collider2D other)
     {
+        Debug.Log("[WoundedSolider] Trigger entered by: " + other.name + ", tag: " + other.tag);
         if (!other.CompareTag("Player"))
         {
+            Debug.Log("[WoundedSolider] Trigger ignored: collider is not Player tag.");
             return;
         }
 
+        Debug.Log("[WoundedSolider] Player detected. Requesting rescue from GameManager.");
         GameManager.d_Instance?.TryRescue(this);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        HandlePlayerTrigger(other);
     }
 
     void UpdateHPUI()
     {
         if (hpText == null)
         {
+            Debug.LogWarning("[WoundedSolider] hpText is not assigned.");
             return;
         }
 
         hpText.text = currentHP + " / " + fullHP;
+        Debug.Log("[WoundedSolider] HP text updated to: " + hpText.text);
     }
 }
